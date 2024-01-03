@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(45, 59, 72);
+}
+
+.home {
+    display: flex;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: ce;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
+
+a,
+a:visited {
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+label,
+button {
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+}
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.line {
+    display: inline-block;
+}
+
+/* Daily Task Pane */
+
+$main-color: #f44336;
+$secondary-color: white;
+$main-color: #333;
+$secondary-color: #869dd8;
+$width: 550px;
+
+.dailyTasks-container {
+    background-color: $main-color;
+    height: 100vh;
+    width: 25%;
+}
+
+.dailyTasks-container-inner {
+    margin-left: 4%;
+    padding-top: 0.2em;
+}
+
+.dailyList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch; /* Change this to stretch */
+}
+
+.dailyList ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between; /* Change this to space-between */
+    align-items: center;
+}
+
+.task-list-item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.task-list-item span:hover {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    margin-top: 0.1em;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    margin-left: 0.1em;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+    height: $width/5;
+    margin: auto;
+}
+
+.dateLabel {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-top: 5%;
+    padding-right: 10%;
+    font-size: 0.8em;
+}
+
+.group {
+    width: 90%;
+    overflow: hidden;
+    position: relative;
+}
+
+.group label {
+    position: absolute;
+    top: $width/15;
+    color: rgba(white, 0.5);
+    font: 400 $width/15 Sans-serif;
+    cursor: text;
+    transition: 0.25s ease;
+}
+
+.group input {
+    display: block;
+    width: 100%;
+    padding-top: $width/10;
+    border: none;
+    border-radius: 0; // For IOS
+    color: white;
+    background: $main-color;
+    font-size: $width/25;
+    transition: 0.3s ease;
+    &:valid {
+        ~ label {
+            top: 0;
+            font: 700 $width/25 Sans-serif;
+            color: rgba(white, 0.5);
+        }
+    }
+    &:focus {
+        outline: none;
+        ~ label {
+            top: 0;
+            font: 700 $width/25 Sans-serif;
+            color: $secondary-color;
+        }
+
+        ~ .bar:before {
+            transform: translateX(0);
+        }
+    }
+
+    // Stop Chrome's background on auto-fill
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $main-color inset;
+        -webkit-text-fill-color: white !important;
+    }
+}
+
+.bar {
+    background: rgba(white, 0.5);
+    content: "";
+    width: $width;
+    height: $width/150;
+    transition: 0.3s ease;
+    position: relative;
+    margin-top: 1%;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $secondary-color;
+        transform: translateX(-100%);
+    }
+}
+
+::selection {
+    background: rgba($secondary-color, 0.3);
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.calendar-section {
+    padding: 1em;
+    height: 100%;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: space-between;
+    background-color: #333;
+    margin-bottom: 0.3em;
+    padding: 0.8em;
+}
+
+.calendar-header a {
+    font-weight: bold;
+}
+
+.calendar-header a:hover {
+    cursor: pointer;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.calendar-day {
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    background-color: #333;
+}
+
+.calendar-day:hover {
+    background-color: #545353;
+    cursor: pointer;
+}
