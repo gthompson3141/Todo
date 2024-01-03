@@ -153,9 +153,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Calendar and Calendar Tasks right
-
-
       {/* Calendar and Calendar Tasks right side */}
       <div className="calendar">
         <Calendar onSelectDate={handleDateSelection} />
